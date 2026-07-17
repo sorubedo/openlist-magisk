@@ -17,7 +17,7 @@ OpenList as a runsv service for Magisk/KernelSU.
 Runs via `chpst -u` by default as `shell:inet:sdcard_r:sdcard_wr`. Customize in `conf`:
 
 ```
-CHPST_USER=shell:inet:sdcard_r:sdcard_wr
+CHPST_USER=shell:inet:sdcard_r:sdcard_rw
 ```
 
 ## Action Button

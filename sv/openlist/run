@@ -3,4 +3,4 @@ exec 2>&1
 
 [ -r ./conf ] && . ./conf
 
-exec chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_wr}" openlist server ${OPENLIST_ARGS:-}
+exec chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_rw}" openlist server ${OPENLIST_ARGS:-}
