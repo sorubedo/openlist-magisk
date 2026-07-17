@@ -31,11 +31,11 @@ ui_print "=================================="
 if vol_sel; then
     ui_print "=> Admin info:"
     ui_print ""
-    chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_rw}" openlist ${OPENLIST_ARGS:-} admin
+    chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_rw}" openlist ${OPENLIST_ARGS:---data /storage/emulated/0/Android/openlist} admin
 else
     ui_print "=> Random reset admin password..."
     ui_print ""
-    chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_rw}" openlist ${OPENLIST_ARGS:-} admin random
+    chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_rw}" openlist ${OPENLIST_ARGS:---data /storage/emulated/0/Android/openlist} admin random
 fi
 
 ui_print ""
