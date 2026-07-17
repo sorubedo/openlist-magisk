@@ -1,6 +1,6 @@
 id=openlist-runsv
 name=openlist (runsv)
-version=1.1.5
-versionCode=115
+version=1.1.6
+versionCode=116
 author=runsvdir-magisk
 description=openlist as a runsv service. Edit conf to change args, link via runsvdir WebUI.
