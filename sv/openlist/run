@@ -3,4 +3,4 @@ exec 2>&1
 
 [ -r ./conf ] && . ./conf
 
-exec chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_wr}" openlist server --data "${OPENLIST_DATA:-/storage/emulated/0/Android/openlist}" ${OPENLIST_ARGS:-}
+exec chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_wr}" openlist server ${OPENLIST_ARGS:-}

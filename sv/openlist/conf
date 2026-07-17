@@ -1,3 +1,2 @@
 CHPST_USER=shell:inet:sdcard_r:sdcard_wr
-OPENLIST_DATA=/storage/emulated/0/Android/openlist
-OPENLIST_ARGS=
+OPENLIST_ARGS=--data /storage/emulated/0/Android/openlist
