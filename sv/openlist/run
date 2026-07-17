@@ -1,0 +1,6 @@
+#!/system/bin/sh
+exec 2>&1
+
+[ -r ./conf ] && . ./conf
+
+exec ./bin/openlist server ${OPENLIST_ARGS:-}
