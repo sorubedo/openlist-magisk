@@ -19,7 +19,7 @@ Use GitHub Actions to get the latest build:
 
 1. Install `runsvdir-magisk` first, then install this module in Magisk/KernelSU.
 2. **Reboot** your device.
-3. Link `openlist` from the runsvdir WebUI or run `sv-enable openlist` in a root shell.
+3. Link `openlist` from the runsvdir WebUI or run `ln -s /data/adb/sv/openlist /data/adb/runsvdir/service/` in a root shell.
 
 ## Configuration
 
