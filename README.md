@@ -23,6 +23,7 @@ Use GitHub Actions to get the latest build:
 ```
 CHPST_USER=shell:inet:sdcard_r:sdcard_rw
 OPENLIST_ARGS="--data /storage/emulated/0/Android/openlist"
+WAIT_DECRYPT=1
 ```
 
 ## Manual Binary Update
