@@ -11,7 +11,7 @@ OpenList as a runsv service for Magisk/KernelSU.
 Release attachments are **not** kept in sync with upstream OpenList versions.
 Use GitHub Actions to get the latest build:
 
-1. Go to the [Actions](actions) tab
+1. Go to the [Actions](https://github.com/sorubedo/openlist-magisk/actions) tab
 2. Select "Build" from the left sidebar
 3. Click **Run workflow** → **Run workflow**
 4. Wait for the run to finish, then download the zip from **Artifacts**
