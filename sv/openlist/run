@@ -3,5 +3,13 @@ exec 2>&1
 
 [ -r ./conf ] && . ./conf
 
+if [ "${WAIT_DECRYPT:-1}" != "0" ]; then
+    while [ ! -d /storage/emulated/0/Android ] || [ ! -r /storage/emulated/0/Android ]; do
+        echo "🔐 $(date): 等待存储解密... waiting 30s..."
+        sleep 30
+    done
+    echo "✅ $(date): 存储已就绪，启动服务"
+fi
+
 exec chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_rw}" \
     openlist server ${OPENLIST_ARGS:---data /storage/emulated/0/Android/openlist}
