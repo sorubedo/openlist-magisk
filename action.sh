@@ -1,13 +1,7 @@
 #!/system/bin/sh
 
-MODDIR=${0%/*}
 SVC_DIR=/data/adb/sv/openlist
-
 cd "$SVC_DIR" || exit 1
-
-keytest() {
-    timeout 3 /system/bin/getevent -lqc 1 2>/dev/null | grep -q "KEY_VOLUME"
-}
 
 ui_print() {
     echo "$1"
@@ -36,11 +30,11 @@ ui_print "=================================="
 if vol_sel; then
     ui_print "=> Admin info:"
     ui_print ""
-    ./bin/openlist admin
+    openlist admin
 else
     ui_print "=> Random reset admin password..."
     ui_print ""
-    ./bin/openlist admin random
+    openlist admin random
 fi
 
 ui_print ""
