@@ -25,13 +25,7 @@ Use GitHub Actions to get the latest build:
 
 If you already have the module installed, you can replace just the binary
 without reinstalling the entire module:
-
-1. Download the artifact zip from Actions
-2. Extract the binary matching your device ABI (`bin/<abi>/openlist`)
-3. Copy it to `/data/adb/modules/openlist-runsv/system/bin/openlist`
-4. Reboot
-
-Or restart the service via runsvdir WebUI / `sv restart openlist`.
+Copy it to `/data/adb/modules/openlist-runsv/system/bin/openlist` and Reboot
 
 ## Privilege Dropping
 
