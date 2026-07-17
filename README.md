@@ -18,22 +18,18 @@ Use GitHub Actions to get the latest build:
 ## Usage
 
 1. Install both modules in Magisk/KernelSU, then **reboot**.
-2. Edit `/data/adb/sv/openlist/conf` to change user/args.
-3. Enable `openlist` from the runsvdir WebUI.
+2. Enable `openlist` from the runsvdir WebUI.
+3. To customize, create `/data/adb/sv/openlist/conf`:
+```
+CHPST_USER=shell:inet:sdcard_r:sdcard_rw
+OPENLIST_ARGS="--data /storage/emulated/0/Android/openlist"
+```
 
 ## Manual Binary Update
 
 If you already have the module installed, you can replace just the binary
 without reinstalling the entire module:
 Copy it to `/data/adb/modules/openlist-runsv/system/bin/openlist` and Reboot
-
-## Privilege Dropping
-
-Runs via `chpst -u` by default as `shell:inet:sdcard_r:sdcard_rw`. Customize in `conf`:
-
-```
-CHPST_USER=shell:inet:sdcard_r:sdcard_rw
-```
 
 ## Action Button
 
