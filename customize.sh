@@ -24,6 +24,6 @@ set_perm "$OPENLIST_BIN_DIR/openlist" 0 0 0755
 cp -r "$MODPATH/sv/openlist/"* "$OPENLIST_DIR/"
 set_perm_recursive "$OPENLIST_DIR" 0 0 0755 0755
 
-rm -rf "$MODPATH/bin"
+rm -rf "$MODPATH/bin" "$MODPATH/sv"
 
 ui_print "- openlist installed to $OPENLIST_DIR"

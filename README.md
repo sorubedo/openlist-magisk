@@ -17,3 +17,7 @@ OpenList as a runsv service for Magisk/KernelSU.
 Click the action button in Magisk/KernelSU and use volume keys to:
 - **Vol Up** — Show admin info
 - **Vol Down** — Random reset admin password
+
+## Security Note
+
+This module runs OpenList as `root` without any privilege dropping. Use at your own risk.
