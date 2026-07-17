@@ -2,6 +2,7 @@
 
 SVC_DIR=/data/adb/sv/openlist
 cd "$SVC_DIR" || exit 1
+[ -r ./conf ] && . ./conf
 
 ui_print() {
     echo "$1"
@@ -30,11 +31,11 @@ ui_print "=================================="
 if vol_sel; then
     ui_print "=> Admin info:"
     ui_print ""
-    openlist admin
+    chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_rw}" openlist ${OPENLIST_ARGS:-} admin
 else
     ui_print "=> Random reset admin password..."
     ui_print ""
-    openlist admin random
+    chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_rw}" openlist ${OPENLIST_ARGS:-} admin random
 fi
 
 ui_print ""
