@@ -29,7 +29,7 @@ Copy it to `/data/adb/modules/openlist-runsv/system/bin/openlist` and Reboot
 
 ## Privilege Dropping
 
-Runs via `chpst -u` by default as `shell:inet:sdcard_r:sdcard_wr`. Customize in `conf`:
+Runs via `chpst -u` by default as `shell:inet:sdcard_r:sdcard_rw`. Customize in `conf`:
 
 ```
 CHPST_USER=shell:inet:sdcard_r:sdcard_rw
