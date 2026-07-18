@@ -1,14 +1,16 @@
 #!/system/bin/sh
 exec 2>&1
 
-[ -r ./conf ] && . ./conf
+[ -r ./conf ] && set -a && . ./conf && set +a
 
-if [ "${WAIT_DECRYPT:-1}" != "0" ]; then
-    while [ ! -d /storage/emulated/0/Android ] || [ ! -r /storage/emulated/0/Android ]; do
-        echo "🔐 $(date): 等待存储解密... waiting 30s..."
+if [ "${WAIT_DECRYPT:-0}" != "0" ]; then
+    echo "🔄 检测存储解密状态..."
+    if [ ! -d /storage/emulated/0/Android ] || [ ! -r /storage/emulated/0/Android ]; then
+        echo "🔐 存储未解密，等待 30s 后退出服务..."
         sleep 30
-    done
-    echo "✅ $(date): 存储已就绪，启动服务"
+        exit 1
+    fi
+    echo "✅ OK"
 fi
 
 exec chpst -u "${CHPST_USER:-shell:inet:sdcard_r:sdcard_rw}" \
