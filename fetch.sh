@@ -21,6 +21,10 @@ declare -A ABIS=(
     ["x86"]="android-386"
 )
 
+echo "=> Fetching checksums..."
+CHECKSUM_URL=$(echo "$RELEASE_JSON" | grep -o "\"browser_download_url\": *\"[^\"]*md5-android.txt\"" | cut -d'"' -f4)
+curl -sSL "$CHECKSUM_URL" -o "$TMPDIR/md5-android.txt"
+
 for ABI in "${!ABIS[@]}"; do
     PLATFORM="${ABIS[$ABI]}"
     ASSET="openlist-${PLATFORM}.tar.gz"
@@ -33,6 +37,19 @@ for ABI in "${!ABIS[@]}"; do
 
     echo "=> Downloading $ASSET..."
     curl -sSL "$URL" -o "$TMPDIR/$ASSET"
+
+    echo "=> Verifying checksum for $ASSET..."
+    EXPECTED_MD5=$(grep -F "./${ASSET}" "$TMPDIR/md5-android.txt" | awk '{print $1}')
+    if [ -z "$EXPECTED_MD5" ]; then
+        echo "!! WARNING: no checksum found for $ASSET"
+    else
+        ACTUAL_MD5=$(md5sum "$TMPDIR/$ASSET" | awk '{print $1}')
+        if [ "$ACTUAL_MD5" != "$EXPECTED_MD5" ]; then
+            echo "!! CHECKSUM MISMATCH for $ASSET: expected $EXPECTED_MD5, got $ACTUAL_MD5"
+            exit 1
+        fi
+        echo "   checksum ok"
+    fi
 
     echo "=> Extracting openlist for $ABI..."
     mkdir -p "$BIN_DIR/$ABI" "$TMPDIR/$ABI"

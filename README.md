@@ -1,6 +1,15 @@
 # openlist-runsv
 
+[English](README.md) | [中文](README_zh-CN.md)
+
 [OpenList](https://github.com/OpenListTeam/OpenList) as a runsv service for Magisk/KernelSU.
+
+This project is a Magisk/KernelSU module wrapper for [OpenList](https://github.com/OpenListTeam/OpenList), packaging the upstream binary as a runsv service for persistent background execution on Android.
+
+| | |
+|---|---|
+| **Upstream** | [OpenListTeam/OpenList](https://github.com/OpenListTeam/OpenList) |
+| **Upstream License** | [AGPL-3.0](https://github.com/OpenListTeam/OpenList/blob/main/LICENSE) |
 
 ## Dependencies
 
@@ -19,7 +28,7 @@ Use GitHub Actions to get the latest build:
 
 1. Install `runsvdir-magisk` first, then install this module in Magisk/KernelSU.
 2. **Reboot** your device.
-3. Link `openlist` from the runsvdir WebUI or run `ln -s /data/adb/sv/openlist /data/adb/runsvdir/service/` in a root shell.
+3. Symlink `openlist` from the runsvdir WebUI or run `ln -s /data/adb/sv/openlist /data/adb/runsvdir/service/` in a root shell.
 
 ## Configuration
 
