@@ -3,7 +3,7 @@ exec 2>&1
 
 [ -r ./conf ] && set -a && . ./conf && set +a
 
-if [ "${WAIT_DECRYPT:-0}" != "0" ]; then
+if [ "${WAIT_DECRYPT:-1}" != "0" ]; then
     echo "🔄 检测存储解密状态..."
     if [ ! -d /storage/emulated/0/Android ] || [ ! -r /storage/emulated/0/Android ]; then
         echo "🔐 存储未解密，等待 30s 后退出服务..."
