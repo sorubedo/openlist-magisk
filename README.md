@@ -22,7 +22,7 @@ Use GitHub Actions to get the latest build:
 
 1. Go to the [Build Workflow](https://github.com/sorubedo/openlist-magisk/actions/workflows/build.yml)
 2. Click **Run workflow** → **Run workflow**
-3. Wait for the run to finish, then download the zip from **Artifacts**
+3. Wait for the run to finish, then download the artifact and select the ZIP whose suffix matches your device: `arm64-v8a`, `armeabi-v7a`, `x86_64`, or `x86`
 
 ## Installation
 
@@ -99,7 +99,7 @@ Use `fetch.sh` to download the latest OpenList release and bundle it into the mo
 
 ```sh
 ./fetch.sh       # downloads latest OpenList for all architectures into bin/
-./package.sh     # creates out/openlist-runsv-<version>.zip
+./package.sh     # creates one out/openlist-runsv-<version>-<abi>.zip per ABI
 ```
 
-The zip can be flashed directly from Magisk/KernelSU.
+Each ZIP contains only one ABI and can be flashed directly from Magisk/KernelSU. Pass one or more ABI names to `package.sh` to build only those targets.

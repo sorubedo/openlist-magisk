@@ -2,6 +2,7 @@
 set -euo pipefail
 
 BIN_DIR="$(cd "$(dirname "$0")" && pwd)/bin"
+OUT_DIR="$(cd "$(dirname "$0")" && pwd)/out"
 TMPDIR="$(mktemp -d)"
 trap 'rm -rf "$TMPDIR"' EXIT
 
@@ -58,3 +59,9 @@ done
 
 echo ""
 echo "=> Done: $TAG"
+
+mkdir -p "$OUT_DIR"
+printf 'openlist_version=%s\n' "$TAG" > "$OUT_DIR/upstream-versions.env"
+if [ -n "${GITHUB_OUTPUT:-}" ]; then
+    printf 'openlist_version=%s\n' "$TAG" >> "$GITHUB_OUTPUT"
+fi
